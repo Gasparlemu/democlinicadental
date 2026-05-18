@@ -1,0 +1,1141 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sonrisa Dental — Clínica Dental · Valdivia</title>
+<meta name="description" content="Sonrisa Dental — Centro especializado en diagnóstico dental en Valdivia. Tomografía Cone Beam, escáner intraoral, radiografías y más.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --white:      #FFFFFF;
+  --bg-main:    #F4F7FB;
+  --bg-alt:     #EEF2F7;
+  --gray-200:   #E2E8F0;
+  --gray-300:   #CBD5E1;
+  --gray-400:   #94A3B8;
+  --gray-500:   #64748B;
+  --gray-600:   #475569;
+  --gray-700:   #334155;
+  --gray-800:   #1E293B;
+  --dark-1:     #0B1120;
+  --dark-2:     #0F172A;
+  --dark-3:     #111827;
+  --blue:       #2563EB;
+  --blue-dark:  #1D4ED8;
+  --blue-light: #EFF6FF;
+  --blue-mid:   #3B82F6;
+  --cyan:       #06B6D4;
+  --cyan-light: #ECFEFF;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-main);
+  color: var(--gray-600);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-alt); }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 4px; }
+
+/* ── NAV ─────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100; height: 70px; padding: 0 6%;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
+}
+nav.scrolled {
+  background: rgba(244,247,251,0.96);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--gray-200);
+  box-shadow: 0 1px 20px rgba(15,23,42,0.07);
+}
+.nav-logo img { height: 36px; width: auto; object-fit: contain; display: block; }
+.nav-logo .logo-light { display: none; }
+nav:not(.scrolled) .nav-logo .logo-dark { display: none; }
+nav:not(.scrolled) .nav-logo .logo-light { display: block; }
+
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { font-size: 0.875rem; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+nav.scrolled .nav-links a { color: var(--gray-600); }
+nav:not(.scrolled) .nav-links a { color: rgba(255,255,255,0.65); }
+nav.scrolled .nav-links a:hover { color: var(--blue); }
+nav:not(.scrolled) .nav-links a:hover { color: white; }
+.nav-cta {
+  background: var(--blue); color: white !important;
+  padding: 9px 22px; border-radius: 10px;
+  font-weight: 600 !important;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s !important;
+}
+.nav-cta:hover {
+  background: var(--blue-dark) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(37,99,235,0.38);
+}
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.nav-hamburger span { display: block; width: 22px; height: 2px; border-radius: 2px; transition: all 0.3s; }
+nav.scrolled .nav-hamburger span { background: var(--gray-800); }
+nav:not(.scrolled) .nav-hamburger span { background: white; }
+
+/* ── HERO ─────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  background: var(--dark-1);
+  position: relative; overflow: hidden;
+}
+.hero-radial {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 55% at 60% 40%, rgba(37,99,235,0.13) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 40% at 15% 75%, rgba(6,182,212,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 85% 85%, rgba(37,99,235,0.06) 0%, transparent 60%);
+}
+.hero-dot-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+}
+.hero-content-col {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 130px 6% 90px 8%;
+  position: relative; z-index: 2;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 0.72rem; font-weight: 600; color: var(--cyan);
+  letter-spacing: 0.14em; text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.hero-eyebrow-dot { width: 5px; height: 5px; background: var(--cyan); border-radius: 50%; }
+.hero h1 {
+  font-size: clamp(2rem, 3.2vw, 2.9rem); font-weight: 800;
+  color: var(--white); line-height: 1.1; letter-spacing: -0.035em;
+  margin-bottom: 22px;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, #93C5FD 0%, var(--cyan) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-sub {
+  font-size: 0.975rem; color: rgba(255,255,255,0.52);
+  line-height: 1.8; max-width: 460px; margin-bottom: 44px;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 56px; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--blue); color: white;
+  padding: 13px 26px; border-radius: 10px;
+  font-weight: 600; font-size: 0.9rem; text-decoration: none;
+  transition: all 0.25s; box-shadow: 0 4px 20px rgba(37,99,235,0.4);
+  will-change: transform;
+}
+.btn-primary:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,99,235,0.52); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.8);
+  padding: 13px 26px; border-radius: 10px;
+  font-weight: 500; font-size: 0.9rem; text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.1); transition: all 0.25s;
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); }
+.hero-trust { display: flex; flex-direction: column; gap: 13px; }
+.trust-row {
+  display: flex; align-items: center; gap: 11px;
+  font-size: 0.815rem; color: rgba(255,255,255,0.4);
+}
+.trust-ico {
+  width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(37,99,235,0.15);
+}
+.trust-ico.c { background: rgba(6,182,212,0.12); }
+.trust-ico svg { width: 15px; height: 15px; color: #60A5FA; }
+.trust-ico.c svg { color: var(--cyan); }
+.hero-image-col { position: relative; overflow: hidden; }
+.hero-image-col img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center; opacity: 0.7;
+  will-change: transform;
+}
+.hero-img-overlay {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to right, var(--dark-1) 0%, rgba(11,17,32,0.2) 40%, transparent 70%),
+    linear-gradient(to top, var(--dark-1) 0%, transparent 35%);
+}
+.hero-scroll-cue {
+  position: absolute; bottom: 40px; left: 8%; z-index: 3;
+  display: flex; align-items: center; gap: 12px;
+  font-size: 0.7rem; color: rgba(255,255,255,0.28);
+  letter-spacing: 0.14em; text-transform: uppercase;
+}
+.scroll-bar { width: 36px; height: 1px; background: rgba(255,255,255,0.15); position: relative; overflow: hidden; }
+.scroll-bar::after {
+  content: ''; position: absolute; top: 0; left: -100%;
+  width: 100%; height: 100%; background: rgba(255,255,255,0.55);
+  animation: bar-run 2.2s ease-in-out infinite;
+}
+@keyframes bar-run { 0% { left:-100%; } 100% { left:100%; } }
+
+/* ── PILLARS ──────────────────────────────────── */
+.section-pillars {
+  background: var(--bg-main);
+  padding: 40px 6%;
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+}
+.pillars-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.pillar {
+  padding: 36px 30px;
+  border-radius: 18px;
+  border: 1px solid transparent;
+  display: flex; flex-direction: column; gap: 14px;
+  transition: transform 0.32s cubic-bezier(0.25,0.46,0.45,0.94),
+              box-shadow 0.32s cubic-bezier(0.25,0.46,0.45,0.94);
+  will-change: transform;
+}
+.pillar:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(15,23,42,0.1); }
+.pillar:nth-child(1) { background: var(--blue-light);  border-color: rgba(37,99,235,0.2); }
+.pillar:nth-child(2) { background: var(--cyan-light);  border-color: rgba(6,182,212,0.2); }
+.pillar:nth-child(3) { background: var(--blue-light);  border-color: rgba(37,99,235,0.2); }
+.pillar:nth-child(4) { background: var(--cyan-light);  border-color: rgba(6,182,212,0.2); }
+.pillar-ico {
+  width: 46px; height: 46px; border-radius: 13px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.pillar-ico.b { background: rgba(37,99,235,0.14); }
+.pillar-ico.c { background: rgba(6,182,212,0.14); }
+.pillar-ico svg { width: 22px; height: 22px; }
+.pillar-ico.b svg { color: var(--blue); }
+.pillar-ico.c svg { color: var(--cyan); }
+.pillar-name { font-size: 1rem; font-weight: 800; color: var(--gray-900); letter-spacing: -0.02em; line-height: 1.25; }
+.pillar:nth-child(1) .pillar-name,
+.pillar:nth-child(3) .pillar-name { color: var(--blue-dark); }
+.pillar:nth-child(2) .pillar-name,
+.pillar:nth-child(4) .pillar-name { color: #0E7490; }
+.pillar-text { font-size: 0.845rem; color: var(--gray-600); line-height: 1.68; }
+
+/* ── SHARED ───────────────────────────────────── */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.72rem; font-weight: 700; color: var(--blue);
+  letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px;
+}
+.eyebrow::before { content:''; display:block; width:18px; height:2px; background:var(--blue); border-radius:1px; }
+.eyebrow.light { color: var(--cyan); }
+.eyebrow.light::before { background: var(--cyan); }
+.sh {
+  font-size: clamp(1.7rem, 2.8vw, 2.5rem); font-weight: 800;
+  color: var(--gray-900); letter-spacing: -0.032em; line-height: 1.15;
+  margin-bottom: 14px;
+}
+.sh.white { color: var(--white); }
+.sp { font-size: 0.975rem; color: var(--gray-500); line-height: 1.78; }
+.sp.muted { color: rgba(255,255,255,0.5); }
+.wrap { max-width: 1200px; margin: 0 auto; }
+
+/* ── ABOUT ────────────────────────────────────── */
+.section-about { padding: 130px 6% 64px; background: var(--bg-main); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: center; }
+.about-text .sp { margin-bottom: 22px; }
+.about-quote {
+  border-left: 3px solid var(--blue);
+  padding: 18px 22px; border-radius: 0 12px 12px 0;
+  background: var(--blue-light);
+  font-size: 0.9rem; color: var(--gray-700);
+  line-height: 1.75; font-style: italic; margin-top: 30px;
+}
+.about-visual { position: relative; }
+.about-visual img {
+  width: 100%; border-radius: 22px; display: block;
+  object-fit: cover; aspect-ratio: 4/3;
+  box-shadow: 0 24px 72px rgba(15,23,42,0.13);
+}
+.about-badge {
+  position: absolute; bottom: -18px; left: -18px;
+  background: var(--white); border: 1px solid var(--gray-200);
+  border-radius: 16px; padding: 18px 22px;
+  box-shadow: 0 12px 40px rgba(15,23,42,0.09);
+  display: flex; align-items: center; gap: 13px;
+}
+.ab-icon {
+  width: 42px; height: 42px; border-radius: 11px;
+  background: var(--blue-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.ab-icon svg { width: 20px; height: 20px; color: var(--blue); }
+.ab-text strong { display: block; font-size: 0.85rem; font-weight: 700; color: var(--gray-900); line-height: 1.25; }
+.ab-text span { font-size: 0.76rem; color: var(--gray-500); }
+
+/* ── SERVICES ─────────────────────────────────── */
+.section-services { padding: 64px 6% 130px; background: var(--white); }
+.services-hdr { text-align: center; margin-bottom: 68px; }
+.services-hdr .eyebrow { justify-content: center; }
+.services-hdr .eyebrow::before { display: none; }
+.services-hdr .sp { max-width: 520px; margin: 0 auto; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.svc-card {
+  background: var(--white); border: 1px solid var(--gray-200);
+  border-radius: 22px; overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: border-color 0.35s, box-shadow 0.35s, transform 0.35s;
+  will-change: transform;
+}
+.svc-card:hover {
+  border-color: rgba(37,99,235,0.22);
+  box-shadow: 0 20px 60px rgba(15,23,42,0.1);
+  transform: translateY(-6px);
+}
+.svc-img {
+  height: 210px; overflow: hidden; flex-shrink: 0; background: var(--bg-alt);
+}
+.svc-img img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.svc-card:hover .svc-img img { transform: scale(1.05); }
+.svc-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+.svc-name { font-size: 1.02rem; font-weight: 800; color: var(--gray-900); letter-spacing: -0.015em; margin-bottom: 10px; }
+.svc-desc { font-size: 0.85rem; color: var(--gray-500); line-height: 1.7; margin-bottom: 20px; flex: 1; }
+.svc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+.stag {
+  font-size: 0.71rem; font-weight: 600; color: var(--blue);
+  background: var(--blue-light); padding: 3px 10px; border-radius: 50px;
+  white-space: nowrap;
+}
+
+/* ── TEAM — EDITORIAL DARK ───────────────────── */
+.section-team {
+  background: var(--dark-2);
+  padding: 130px 6%;
+  position: relative; overflow: hidden;
+}
+.team-pattern {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,0.022) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, black 0%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 50%, black 0%, transparent 100%);
+}
+.team-radial {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 50% at 80% 30%, rgba(37,99,235,0.1) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 50% at 10% 70%, rgba(6,182,212,0.06) 0%, transparent 60%);
+}
+.team-inner { position: relative; z-index: 1; }
+.team-hdr { margin-bottom: 72px; }
+.team-hdr .sh { max-width: 520px; }
+.team-hdr .sp { max-width: 520px; }
+
+.team-panels {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border: 1px solid rgba(255,255,255,0.07); border-radius: 22px; overflow: hidden;
+}
+.team-panel {
+  padding: 52px 44px;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  position: relative; display: flex; flex-direction: column;
+  transition: background 0.4s;
+}
+.team-panel:last-child { border-right: none; }
+.team-panel:hover { background: rgba(255,255,255,0.03); }
+.team-panel::after {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  opacity: 0; transition: opacity 0.4s;
+}
+.team-panel:hover::after { opacity: 1; }
+
+.tp-num {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.18); text-transform: uppercase;
+  margin-bottom: 40px;
+}
+.tp-name {
+  font-size: clamp(1.15rem, 2vw, 1.45rem); font-weight: 800;
+  color: var(--white); letter-spacing: -0.025em; line-height: 1.2;
+  margin-bottom: 22px;
+}
+.tp-rule {
+  width: 28px; height: 2px; background: var(--blue);
+  border-radius: 2px; margin-bottom: 14px;
+  transition: width 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.team-panel:hover .tp-rule { width: 52px; }
+.tp-role {
+  font-size: 0.76rem; font-weight: 600; color: var(--cyan);
+  letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 22px;
+}
+.tp-bio { font-size: 0.865rem; color: rgba(255,255,255,0.38); line-height: 1.78; flex: 1; }
+
+/* ── FOR DENTISTS ─────────────────────────────── */
+.section-dentists {
+  padding: 130px 6%;
+  background: var(--dark-1);
+  position: relative; overflow: hidden;
+}
+.section-dentists::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 50% 60% at 92% 50%, rgba(37,99,235,0.11) 0%, transparent 70%),
+    radial-gradient(ellipse 35% 45% at 5% 20%, rgba(6,182,212,0.07) 0%, transparent 60%);
+}
+.dent-inner { position: relative; z-index: 1; }
+.dent-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: start; }
+.dent-text .eyebrow { color: var(--cyan); }
+.dent-text .eyebrow::before { background: var(--cyan); }
+.dent-list { margin-top: 36px; display: flex; flex-direction: column; gap: 14px; }
+.dent-item {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 20px 22px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06); border-radius: 14px;
+  transition: all 0.3s;
+}
+.dent-item:hover { background: rgba(255,255,255,0.06); border-color: rgba(37,99,235,0.28); }
+.di-ico {
+  width: 40px; height: 40px; border-radius: 11px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(37,99,235,0.18);
+}
+.di-ico.c { background: rgba(6,182,212,0.15); }
+.di-ico svg { width: 18px; height: 18px; color: #60A5FA; }
+.di-ico.c svg { color: var(--cyan); }
+.di-text h4 { font-size: 0.88rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+.di-text p { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.65; }
+
+.dent-aside { display: flex; flex-direction: column; gap: 22px; padding-top: 18px; }
+.dent-cta-card {
+  background: rgba(37,99,235,0.1); border: 1px solid rgba(37,99,235,0.22);
+  border-radius: 20px; padding: 38px;
+}
+.dent-cta-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+.dent-cta-card p { font-size: 0.875rem; color: rgba(255,255,255,0.48); line-height: 1.75; margin-bottom: 26px; }
+.btn-white {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--white); color: var(--blue);
+  padding: 12px 24px; border-radius: 10px;
+  font-weight: 700; font-size: 0.875rem; text-decoration: none;
+  transition: all 0.2s;
+}
+.btn-white:hover { background: var(--blue-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,99,235,0.2); }
+.dent-contact-card {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px; padding: 32px;
+}
+.dent-contact-card h4 {
+  font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.85);
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px;
+}
+.clink {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.86rem; color: rgba(255,255,255,0.44);
+  text-decoration: none; margin-bottom: 12px; transition: color 0.2s;
+}
+.clink:hover { color: rgba(255,255,255,0.85); }
+.clink svg { width: 14px; height: 14px; flex-shrink: 0; color: var(--blue); }
+.clink:last-child { margin-bottom: 0; }
+
+/* ── GALLERY ──────────────────────────────────── */
+.section-gallery { padding: 130px 6%; background: var(--bg-alt); }
+.gallery-hdr { text-align: center; margin-bottom: 56px; }
+.gallery-hdr .eyebrow { justify-content: center; }
+.gallery-hdr .eyebrow::before { display: none; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.g-item { overflow: hidden; border-radius: 16px; background: var(--bg-main); }
+.g-item:first-child { grid-column: 1 / 3; }
+.g-item img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.g-item:first-child img { aspect-ratio: 16/9; }
+.g-item:not(:first-child) img { aspect-ratio: 4/3; }
+.g-item:hover img { transform: scale(1.05); }
+
+/* ── CTA ──────────────────────────────────────── */
+.section-cta {
+  padding: 150px 6%;
+  background: var(--bg-main);
+  text-align: center; position: relative; overflow: hidden;
+}
+.section-cta::before {
+  content: ''; position: absolute;
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 800px; height: 400px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(37,99,235,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--blue-light); border: 1px solid rgba(37,99,235,0.2);
+  border-radius: 50px; padding: 6px 18px; margin-bottom: 30px;
+  font-size: 0.72rem; font-weight: 700; color: var(--blue);
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.cta-inner .sh { margin-bottom: 18px; }
+.cta-inner .sp { max-width: 480px; margin: 0 auto 44px; }
+.cta-btns { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.btn-blue {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--blue); color: white;
+  padding: 15px 30px; border-radius: 12px;
+  font-weight: 700; font-size: 0.95rem; text-decoration: none;
+  transition: all 0.25s; box-shadow: 0 5px 22px rgba(37,99,235,0.4);
+}
+.btn-blue:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(37,99,235,0.5); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--gray-700);
+  padding: 15px 26px; border-radius: 12px;
+  font-weight: 600; font-size: 0.95rem; text-decoration: none;
+  border: 1px solid var(--gray-300); transition: all 0.2s;
+}
+.btn-outline:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
+.cta-meta {
+  margin-top: 40px;
+  display: flex; align-items: center; justify-content: center;
+  gap: 28px; flex-wrap: wrap;
+}
+.cta-meta-item {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 0.82rem; color: var(--gray-400);
+}
+.cta-meta-item svg { width: 14px; height: 14px; color: var(--blue); }
+
+/* ── FOOTER ───────────────────────────────────── */
+footer { background: var(--dark-1); padding: 76px 6% 40px; }
+.foot-top {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.7fr 1fr 1fr 1fr;
+  gap: 56px; padding-bottom: 56px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  margin-bottom: 32px;
+}
+.foot-logo { margin-bottom: 18px; }
+.foot-logo img { height: 30px; width: auto; object-fit: contain; }
+.foot-desc { font-size: 0.85rem; color: rgba(255,255,255,0.35); line-height: 1.78; margin-bottom: 22px; }
+.foot-link {
+  display: flex; align-items: center; gap: 9px;
+  font-size: 0.82rem; color: rgba(255,255,255,0.38);
+  text-decoration: none; margin-bottom: 10px; transition: color 0.2s;
+}
+.foot-link:hover { color: rgba(255,255,255,0.78); }
+.foot-link svg { width: 13px; height: 13px; flex-shrink: 0; color: var(--blue); }
+.foot-col h4 {
+  font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.85);
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px;
+}
+.foot-col ul { list-style: none; }
+.foot-col li { margin-bottom: 11px; }
+.foot-col a { font-size: 0.85rem; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+.foot-col a:hover { color: rgba(255,255,255,0.72); }
+.foot-bottom {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.foot-copy { font-size: 0.775rem; color: rgba(255,255,255,0.2); }
+.social-links { display: flex; gap: 10px; }
+.social-a {
+  width: 34px; height: 34px; border-radius: 9px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07);
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; transition: all 0.25s;
+}
+.social-a:hover { background: rgba(37,99,235,0.25); border-color: rgba(37,99,235,0.4); }
+.social-a svg { width: 14px; height: 14px; color: rgba(255,255,255,0.45); }
+.social-a:hover svg { color: white; }
+
+/* ── REVEAL SYSTEM ────────────────────────────── */
+[data-r] {
+  opacity: 0; will-change: opacity, transform, filter;
+  transition:
+    opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--rd, 0s);
+}
+[data-r="up"]    { transform: translateY(32px); filter: blur(3px); }
+[data-r="left"]  { transform: translateX(-36px); filter: blur(3px); }
+[data-r="right"] { transform: translateX(36px);  filter: blur(3px); }
+[data-r="scale"] { transform: scale(0.96); filter: blur(3px); }
+[data-r].in     { opacity: 1; transform: none; filter: blur(0); }
+
+/* ── RESPONSIVE ───────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-image-col { height: 360px; }
+  .hero-content-col { padding: 120px 5% 60px; }
+  .hero-scroll-cue { display: none; }
+  .pillars-inner { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .about-grid, .dent-layout { grid-template-columns: 1fr; gap: 48px; }
+  .foot-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 768px) {
+  nav { padding: 0 5%; }
+  .services-grid { grid-template-columns: 1fr; }
+  .team-panels { grid-template-columns: 1fr; border-radius: 18px; }
+  .team-panel { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .team-panel:last-child { border-bottom: none; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .g-item:first-child { grid-column: 1/-1; }
+  .pillars-inner { grid-template-columns: 1fr; gap: 10px; }
+  .section-pillars { padding: 32px 5%; }
+  .foot-top { grid-template-columns: 1fr; }
+  .foot-bottom { flex-direction: column; align-items: flex-start; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+}
+@media (max-width: 480px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+  .g-item:first-child { grid-column: 1; }
+  .about-badge { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-r] { transition: opacity 0.4s ease; filter: none !important; transform: none !important; }
+  .scroll-bar::after, .hero h1 span { animation: none; }
+}
+
+/* ── MOBILE OVERFLOW FIX ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden; max-width: 100%; }
+  .hero, .section-about, .section-pillars, .section-services,
+  .section-team, .section-dentists, .section-gallery,
+  .section-cta, footer {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .wrap, .about-grid, .dent-inner, .dent-layout,
+  .pillars-inner, .team-inner, .services-hdr,
+  .gallery-hdr, .cta-inner, .foot-top, .foot-bottom {
+    max-width: 100%;
+  }
+}
+/* ── DEMO IMAGE PLACEHOLDER ─────────────────────────────────────── */
+.demo-ph { position: relative !important; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important; }
+.demo-ph > img { opacity: 0 !important; }
+.demo-ph-inner { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; pointer-events: none; }
+.demo-ph-ico { width: 34px; height: 34px; color: rgba(96,165,250,0.35); }
+.demo-ph-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.18); }</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo" style="text-decoration:none">
+    <span class="logo-dark" style="font-weight:800;font-size:1.1rem;letter-spacing:-0.5px;color:var(--dark-1);">Sonrisa<span style="color:var(--blue);">Dental</span></span>
+    <span class="logo-light" style="font-weight:800;font-size:1.1rem;letter-spacing:-0.5px;color:#fff;">Sonrisa<span style="color:var(--cyan);">Dental</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#equipo">Equipo</a></li>
+    <li><a href="#odontologos">Odontólogos</a></li>
+    <li><a href="#contacto" class="nav-cta">Agendar hora</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-radial"></div>
+  <div class="hero-dot-grid"></div>
+
+  <div class="hero-content-col">
+    <div class="hero-eyebrow" data-r="up" style="--rd:.1s">
+      <span class="hero-eyebrow-dot"></span>
+      Clínica Dental · Valdivia
+    </div>
+    <h1 data-r="up" style="--rd:.2s">
+      Diagnóstico dental<br>de <em>última generación</em>
+    </h1>
+    <p class="hero-sub" data-r="up" style="--rd:.32s">
+      Equipos de alta tecnología con baja dosis de radiación e imágenes de excelente calidad. Atención a niños y adultos en un ambiente grato y profesional.
+    </p>
+    <div class="hero-actions" data-r="up" style="--rd:.42s">
+      <a href="tel:+56900000000" class="btn-primary">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="17" height="17"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        +56 9 0000 0000
+      </a>
+      <a href="#servicios" class="btn-ghost">
+        Ver servicios
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </a>
+    </div>
+    <div class="hero-trust" data-r="up" style="--rd:.52s">
+      <div class="trust-row">
+        <div class="trust-ico">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        Baja dosis de radiación garantizada
+      </div>
+      <div class="trust-row">
+        <div class="trust-ico c">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+        </div>
+        Tomografía Cone-Beam · Escaneo intraoral digital
+      </div>
+      <div class="trust-row">
+        <div class="trust-ico">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        Av. Valdivia, Región de Los Ríos, Chile
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-image-col" id="hero-img-col">
+    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1200&q=80" alt="Centro Sonrisa Dental" id="hero-img">
+    <div class="hero-img-overlay"></div>
+  </div>
+
+  <div class="hero-scroll-cue">
+    <span class="scroll-bar"></span>
+    Conoce más
+  </div>
+</section>
+
+<!-- PILLARS -->
+<div class="section-pillars">
+  <div class="pillars-inner">
+    <div class="pillar" data-r="up" style="--rd:.05s">
+      <div class="pillar-ico b">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+      </div>
+      <div class="pillar-name">Imágenes en 3D</div>
+      <div class="pillar-text">Tomografía Cone-Beam para visualización volumétrica de alta precisión diagnóstica.</div>
+    </div>
+    <div class="pillar" data-r="up" style="--rd:.12s">
+      <div class="pillar-ico c">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      </div>
+      <div class="pillar-name">Baja radiación</div>
+      <div class="pillar-text">Equipos de última generación que emiten baja dosis de radiación sin sacrificar calidad.</div>
+    </div>
+    <div class="pillar" data-r="up" style="--rd:.19s">
+      <div class="pillar-ico b">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      </div>
+      <div class="pillar-name">Tecnología digital</div>
+      <div class="pillar-text">Escaneo intraoral digital y análisis cefalométrico con software de análisis digital.</div>
+    </div>
+    <div class="pillar" data-r="up" style="--rd:.26s">
+      <div class="pillar-ico c">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+      </div>
+      <div class="pillar-name">Ambiente grato</div>
+      <div class="pillar-text">Atención personalizada para niños y adultos, centrada en la comodidad del paciente.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section-about" id="nosotros">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-text" data-r="left">
+        <div class="eyebrow">Quiénes somos</div>
+        <h2 class="sh">Centro de diagnóstico dental especializado</h2>
+        <p class="sp">Sonrisa Dental es un centro de radiología dental ubicado en Valdivia, equipado con tecnología de última generación para entregar excelente calidad de imágenes diagnósticas a pacientes y profesionales de la odontología.</p>
+        <p class="sp">Contamos con equipos que emiten baja dosis de radiación, garantizando la seguridad de cada paciente sin comprometer la precisión del diagnóstico.</p>
+        <div class="about-quote">
+          "Equipos de última generación que emiten baja radiación y entregan excelente calidad de imágenes en un ambiente grato, enfocado en dar la mejor atención a niños y adultos."
+        </div>
+      </div>
+      <div class="about-visual" data-r="right">
+        <img src="clinica-dental-que-es.webp" alt="Instalaciones Sonrisa Dental">
+        <div class="about-badge">
+          <div class="ab-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div class="ab-text">
+            <strong>Av. Valdivia, Región de Los Ríos</strong>
+            <span>Valdivia, Chile</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section-services" id="servicios">
+  <div class="wrap">
+    <div class="services-hdr" data-r="up">
+      <div class="eyebrow">Servicios</div>
+      <h2 class="sh">Gama completa de estudios<br>de diagnóstico dental</h2>
+      <p class="sp">Todos los exámenes que tu odontólogo puede necesitar, con tecnología digital y alta calidad de imagen.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card" data-r="up" style="--rd:.05s">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?w=800&q=80" alt="Tomografía Cone-Beam"></div>
+        <div class="svc-body">
+          <div class="svc-name">Tomografía Cone-Beam</div>
+          <p class="svc-desc">Imagen volumétrica 3D de alta resolución con baja dosis de radiación. Esencial para planificación de implantes, cirugía y endodoncia compleja.</p>
+          <div class="svc-tags">
+            <span class="stag">Maxilar</span><span class="stag">Mandibular</span><span class="stag">Bimaxilar</span>
+            <span class="stag">ATM</span><span class="stag">Vía Aérea</span><span class="stag">Cavidades Paranasales</span>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card" data-r="up" style="--rd:.12s">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=800&q=80" alt="Escaneo Intraoral escáner intraoral digital"></div>
+        <div class="svc-body">
+          <div class="svc-name">Escaneo Intraoral</div>
+          <p class="svc-desc">Digitalización precisa con tecnología escáner intraoral digital. Modelos 3D en archivos STL listos para planificación digital sin impresiones tradicionales.</p>
+          <div class="svc-tags">
+            <span class="stag">escáner intraoral digital</span><span class="stag">Archivos STL</span><span class="stag">Modelo 3D</span>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card" data-r="up" style="--rd:.19s">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80" alt="Radiografías Extraorales"></div>
+        <div class="svc-body">
+          <div class="svc-name">Radiografías Extraorales</div>
+          <p class="svc-desc">Estudio digital de maxilares y estructuras craneofaciales. Imágenes de alta definición para diagnósticos confiables en ortodoncia y cirugía.</p>
+          <div class="svc-tags">
+            <span class="stag">Ortopantomografía</span><span class="stag">Teleradiografía Lateral</span><span class="stag">Teleradiografía Frontal</span><span class="stag">Radiografía de Mano</span>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card" data-r="up" style="--rd:.05s">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=600&q=80" alt="Radiografías Intraorales"></div>
+        <div class="svc-body">
+          <div class="svc-name">Radiografías Intraorales</div>
+          <p class="svc-desc">Estudios de alta definición para evaluación de dientes individuales, tejido periapical y cresta alveolar. Esenciales en el diagnóstico de caries y patología apical.</p>
+          <div class="svc-tags">
+            <span class="stag">Periapicales</span><span class="stag">Retroalveolares</span><span class="stag">Bite-Wing</span>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card" data-r="up" style="--rd:.12s">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80" alt="Análisis Cefalométrico"></div>
+        <div class="svc-body">
+          <div class="svc-name">Análisis Cefalométrico</div>
+          <p class="svc-desc">Análisis digital con software de análisis digital. Mediciones precisas de estructuras óseas y dentales para planificación ortodóncica y quirúrgica.</p>
+          <div class="svc-tags">
+            <span class="stag">software especializado</span><span class="stag">Análisis digital</span><span class="stag">Ortodoncia</span>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card" data-r="up" style="--rd:.19s">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80" alt="Fotografías Clínicas"></div>
+        <div class="svc-body">
+          <div class="svc-name">Fotografías Clínicas</div>
+          <p class="svc-desc">Registro fotográfico clínico estandarizado de estructuras dentales y faciales. Documentación de alta calidad como complemento diagnóstico y de seguimiento.</p>
+          <div class="svc-tags">
+            <span class="stag">Intraorales</span><span class="stag">Extraorales</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM — EDITORIAL DARK -->
+<section class="section-team" id="equipo">
+  <div class="team-pattern"></div>
+  <div class="team-radial"></div>
+  <div class="wrap team-inner">
+    <div class="team-hdr" data-r="up">
+      <div class="eyebrow light">Nuestro equipo</div>
+      <h2 class="sh white">Especialistas a tu servicio</h2>
+      <p class="sp muted">Profesionales con formación especializada en radiología dental, comprometidos con la precisión diagnóstica y la calidad de atención.</p>
+    </div>
+    <div class="team-panels">
+      <div class="team-panel" data-r="up" style="--rd:.08s">
+        <div class="tp-num">01</div>
+        <div class="tp-name">Dr. A. González</div>
+        <div class="tp-rule"></div>
+        <div class="tp-role">Cirujano Dentista</div>
+        <p class="tp-bio">Especialista en diagnóstico dental de alta precisión. Formación en imagen volumétrica cone-beam y diagnóstico dental de alta precisión.</p>
+      </div>
+      <div class="team-panel" data-r="up" style="--rd:.18s">
+        <div class="tp-num">02</div>
+        <div class="tp-name">Dra. M. Pérez</div>
+        <div class="tp-rule"></div>
+        <div class="tp-role">Coordinadora · Cirujano Dentista</div>
+        <p class="tp-bio">Cirujano Dentista a cargo de la coordinación clínica del centro. Garantiza la calidad de atención y la experiencia del paciente en cada etapa de su visita.</p>
+      </div>
+      <div class="team-panel" data-r="up" style="--rd:.28s">
+        <div class="tp-num">03</div>
+        <div class="tp-name">C. Ramírez</div>
+        <div class="tp-rule"></div>
+        <div class="tp-role">Técnico Dental</div>
+        <p class="tp-bio">Técnico dental especializado en operación de equipos radiológicos digitales y en la atención directa del paciente durante los procedimientos de imagen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR DENTISTS -->
+<section class="section-dentists" id="odontologos">
+  <div class="wrap dent-inner">
+    <div class="dent-layout">
+      <div class="dent-text" data-r="left">
+        <div class="eyebrow light">Para odontólogos</div>
+        <h2 class="sh white">El centro de apoyo diagnóstico de tu clínica</h2>
+        <p class="sp muted">Sonrisa Dental trabaja con odontólogos generales y especialistas de toda la región, ofreciendo compatibilidad digital total y resultados de alta precisión.</p>
+        <div class="dent-list">
+          <div class="dent-item">
+            <div class="di-ico">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+            </div>
+            <div class="di-text">
+              <h4>Archivos STL en 3D</h4>
+              <p>Escaneo intraoral escáner intraoral digital. Modelos digitales listos para software de planificación de implantes y ortodoncia.</p>
+            </div>
+          </div>
+          <div class="dent-item">
+            <div class="di-ico c">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+            </div>
+            <div class="di-text">
+              <h4>CBCT para planificación de implantes</h4>
+              <p>Tomografía volumétrica en múltiples campos de visión, compatible con los principales softwares de implantología.</p>
+            </div>
+          </div>
+          <div class="dent-item">
+            <div class="di-ico">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+            </div>
+            <div class="di-text">
+              <h4>Análisis cefalométrico digital</h4>
+              <p>Informes detallados con software de referencia para diagnóstico ortodóncico y quirúrgico.</p>
+            </div>
+          </div>
+          <div class="dent-item">
+            <div class="di-ico c">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+            </div>
+            <div class="di-text">
+              <h4>Entrega digital de resultados</h4>
+              <p>Imágenes e informes enviados directamente al profesional para integración inmediata en el flujo clínico.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dent-aside" data-r="right">
+        <div class="dent-cta-card">
+          <h3>¿Quieres derivar pacientes a Sonrisa Dental?</h3>
+          <p>Coordina directamente con nuestro equipo para gestionar derivaciones radiológicas. Atención rápida y resultados de alta calidad para tus pacientes.</p>
+          <a href="tel:+56900000000" class="btn-white">
+            Llamar ahora
+            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" width="14" height="14"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+        <div class="dent-contact-card">
+          <h4>Información de contacto</h4>
+          <a href="tel:+56900000000" class="clink">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            +56 9 0000 0000
+          </a>
+          <a href="mailto:contacto@sonrisadental.cl" class="clink">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            contacto@sonrisadental.cl
+          </a>
+          <div class="clink">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Av. Valdivia, Región de Los Ríos, Chile
+          </div>
+          <div class="clink">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Lun–Vie: 10:00 – 15:00 hrs
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section-gallery" id="galeria">
+  <div class="wrap">
+    <div class="gallery-hdr" data-r="up">
+      <div class="eyebrow">Nuestro centro</div>
+      <h2 class="sh">Instalaciones y equipamiento</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-item" data-r="up" style="--rd:.05s"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=900&q=80" alt="Sonrisa Dental — instalaciones"></div>
+      <div class="g-item" data-r="up" style="--rd:.12s"><img src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=600&q=80" alt="Sonrisa Dental — equipamiento"></div>
+      <div class="g-item" data-r="up" style="--rd:.19s"><img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=600&q=80" alt="Sonrisa Dental — recepción"></div>
+      <div class="g-item" data-r="up" style="--rd:.26s"><img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&q=80" alt="Sonrisa Dental — sala de examen"></div>
+      <div class="g-item" data-r="up" style="--rd:.33s"><img src="https://images.unsplash.com/photo-1524514587686-e2909d726e9b?w=600&q=80" alt="Sonrisa Dental — tecnología"></div>
+      <div class="g-item" data-r="up" style="--rd:.4s"><img src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&q=80" alt="Sonrisa Dental — equipo clínico"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section-cta" id="contacto">
+  <div class="cta-inner" data-r="up">
+    <div class="cta-pill">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="12" height="12"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+      Agenda tu examen
+    </div>
+    <h2 class="sh">Tecnología avanzada para diagnósticos más precisos.</h2>
+    <p class="sp">Contáctanos para agendar tu examen radiológico. Atendemos de lunes a viernes de 10:00 a 15:00 hrs en Av. Valdivia, Región de Los Ríos, Chile.</p>
+    <div class="cta-btns">
+      <a href="tel:+56900000000" class="btn-blue">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        +56 9 0000 0000
+      </a>
+      <a href="mailto:contacto@sonrisadental.cl" class="btn-outline">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        contacto@sonrisadental.cl
+      </a>
+    </div>
+    <div class="cta-meta">
+      <div class="cta-meta-item">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Lun–Vie: 10:00 – 15:00 hrs
+      </div>
+      <div class="cta-meta-item">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        Av. Valdivia, Región de Los Ríos, Chile
+      </div>
+      <div class="cta-meta-item">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        Baja dosis de radiación
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div>
+      <div class="foot-logo"><span style="font-weight:800;font-size:1.4rem;letter-spacing:-0.5px;color:#fff;">Sonrisa<span style="color:var(--cyan);">Dental</span></span></div>
+      <p class="foot-desc">Centro de diagnóstico dental en Valdivia. Equipos de última generación y atención profesional.</p>
+      <a href="tel:+56900000000" class="foot-link">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        +56 9 0000 0000
+      </a>
+      <a href="mailto:contacto@sonrisadental.cl" class="foot-link">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        contacto@sonrisadental.cl
+      </a>
+      <div class="foot-link">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        Av. Valdivia, Región de Los Ríos, Chile
+      </div>
+    </div>
+    <div class="foot-col">
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="#servicios">Tomografía Cone-Beam</a></li>
+        <li><a href="#servicios">Escaneo Intraoral</a></li>
+        <li><a href="#servicios">Radiografías Extraorales</a></li>
+        <li><a href="#servicios">Radiografías Intraorales</a></li>
+        <li><a href="#servicios">Análisis Cefalométrico</a></li>
+        <li><a href="#servicios">Fotografías Clínicas</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Centro</h4>
+      <ul>
+        <li><a href="#nosotros">Quiénes somos</a></li>
+        <li><a href="#equipo">Nuestro equipo</a></li>
+        <li><a href="#galeria">Instalaciones</a></li>
+        <li><a href="#odontologos">Para odontólogos</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Horario</h4>
+      <ul>
+        <li><a href="#">Lunes a Viernes</a></li>
+        <li><a href="#">10:00 – 15:00 hrs</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p class="foot-copy">© 2026 Sonrisa Dental · Clínica Dental. Todos los derechos reservados.</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com/sonrisadental" target="_blank" class="social-a" aria-label="Instagram">
+        <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.facebook.com/sonrisadental" target="_blank" class="social-a" aria-label="Facebook">
+        <svg fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── NAV
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 50);
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+// ── MOBILE MENU
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  const open = links.style.display === 'flex';
+  if (open) {
+    links.style.cssText = '';
+  } else {
+    links.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(244,247,251,0.97);backdrop-filter:blur(20px);padding:28px 6%;border-bottom:1px solid #E2E8F0;gap:20px;z-index:99;';
+    links.querySelectorAll('a').forEach(a => { a.style.color='#334155'; });
+  }
+}
+
+// ── REVEAL — blur + translate + opacity
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('[data-r]').forEach(el => io.observe(el));
+
+</script>
+
+<script>
+(function(){
+  function applyPh(img){
+    var p=img.parentElement; if(p.classList.contains('demo-ph'))return;
+    p.classList.add('demo-ph');
+    var w=document.createElement('div'); w.className='demo-ph-inner';
+    w.innerHTML='<svg class="demo-ph-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M9 5V3.5h6V5"/></svg><span class="demo-ph-label">Imagen de demostración</span>';
+    p.appendChild(w);
+  }
+  function init(){
+    document.querySelectorAll('img').forEach(function(img){
+      if(img.complete&&img.naturalWidth===0){applyPh(img);return;}
+      img.addEventListener('error',function(){applyPh(img);});
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+})();
+</script></body>
+</html>
